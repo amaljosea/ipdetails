@@ -9,10 +9,7 @@ export default function handler(
   res: NextApiResponse<Data>,
 ) {
 
-    const detectedIp = requestIp.getClientIp(req);
-    const headersRaw = req.rawHeaders
-
-    console.log(req)
-
-  res.status(200).json({ name: "John Doe", detectedIp, headersRaw });
+  const detectedIp = requestIp.getClientIp(req);
+  const headersRaw = req.rawHeaders
+  res.status(200).json({ name: "John Doe", detectedIp, headersRaw, headers:req.headers });
 }
